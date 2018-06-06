@@ -4,7 +4,7 @@ import {
 	StyleSheet,
     View,
     ViewPropTypes,
-	Text, 
+	Text,
 	Image,
 	Dimensions,
 	PixelRatio,
@@ -171,7 +171,7 @@ export default class PickerAndroid extends Component{
 
 	_renderItems(items){
 		//value was used to watch the change of picker
-		//label was used to display 
+		//label was used to display
 		let upItems = [], middleItems = [], downItems = [];
 		items.forEach((item, index) => {
 
@@ -203,7 +203,7 @@ export default class PickerAndroid extends Component{
 	}
 
 	_onValueChange(){
-		//the current picked label was more expected to be passed, 
+		//the current picked label was more expected to be passed,
 		//but PickerIOS only passed value, so we set label to be the second argument
 		//add by zooble @2015-12-10
 		var curItem = this.state.items[this.index];
@@ -216,17 +216,17 @@ export default class PickerAndroid extends Component{
 		let items = this._renderItems(this.state.items);
 
 		let upViewStyle = {
-			marginTop: (3 - index) * 30, 
-			height: length * 30, 
+			marginTop: (3 - index) * 30,
+			height: length * 30,
 		};
 		let middleViewStyle = {
-			marginTop:  -index * 40, 
+			marginTop:  -index * 40,
 		};
 		let downViewStyle = {
-			marginTop: (-index - 1) * 30, 
-			height:  length * 30, 
+			marginTop: (-index - 1) * 30,
+			height:  length * 30,
 		};
-		
+
 		return (
 			//total to be 90*2+40=220 height
 			<View style={[styles.container, this.state.pickerStyle]} {...this._panResponder.panHandlers}>
@@ -305,7 +305,8 @@ let styles = StyleSheet.create({
 		fontSize: 28,
 		paddingBottom: 0,
 		marginTop: 0,
-		marginBottom: 0
+		marginBottom: 0,
+		backgroundColor: 'white'
 	},
 	down: {
 		height: 90,
@@ -320,7 +321,7 @@ let styles = StyleSheet.create({
 		paddingTop: 0,
 		height: 30,
 		fontSize: 16,
-		color: '#000',
+		color: 'transparent',
 		opacity: .5,
 		paddingBottom: 0,
 		marginTop: 0,
