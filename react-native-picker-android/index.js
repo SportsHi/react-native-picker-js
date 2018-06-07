@@ -291,7 +291,8 @@ let styles = StyleSheet.create({
 		overflow: 'hidden',
 		borderColor: '#aaa',
 		borderTopWidth: 1/ratio,
-		borderBottomWidth: 1/ratio
+		borderBottomWidth: 1/ratio,
+		top: -5
 	},
 	middleView: {
 		height: 40,
@@ -299,10 +300,10 @@ let styles = StyleSheet.create({
 		alignItems: 'center'
 	},
 	middleText: {
-		paddingTop: 0,
+		paddingTop: 3,
 		height: 40,
 		color: '#000',
-		fontSize: 28,
+		fontSize: 22,
 		paddingBottom: 0,
 		marginTop: 0,
 		marginBottom: 0,
