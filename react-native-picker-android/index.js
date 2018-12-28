@@ -149,6 +149,13 @@ export default class PickerAndroid extends Component{
 
 	_handlePanResponderRelease(evt, gestureState){
 		let middleHeight = this.middleHeight;
+
+		// this function seems to get triggered if a touch
+		// occurs just a few milliseconds after launching
+		// the picker, at which point middleHeight ends up
+		// being NaN which messes things up, so we just return
+		if (typeof middleHeight != 'number') return;
+
 		this.index = middleHeight % 40 >= 20 ? Math.ceil(middleHeight / 40) : Math.floor(middleHeight / 40);
 		this._move(0);
 		this._onValueChange();
