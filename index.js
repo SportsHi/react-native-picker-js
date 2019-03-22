@@ -32,6 +32,7 @@ export default class PickerAny extends Component {
 		pickerTitleStyle: Text.propTypes.style,
 		pickerToolBarStyle: ViewPropTypes.style,
 		showMask: PropTypes.bool,
+		showCancelButton: PropTypes.bool,
 		showDuration: PropTypes.number,
 		pickerData: PropTypes.any.isRequired,
 		selectedValue: PropTypes.any.isRequired,
@@ -47,6 +48,7 @@ export default class PickerAny extends Component {
 		pickerBtnText: 'Done',
 		pickerCancelBtnText: 'Cancel',
 		showMask: false,
+		showCancelButton: true,
 		showDuration: 300,
 		onPickerDone: ()=>{},
 		onPickerCancel: ()=>{},
@@ -162,7 +164,7 @@ export default class PickerAny extends Component {
 			this._slideUp();
 		}
 	}
-	
+
 	toggle(){
 		this._toggle();
 	}
@@ -415,10 +417,12 @@ export default class PickerAny extends Component {
 				{mask}
 				<View style={[styles.pickerBox, this.state.style]}>
 					<View style={[styles.pickerToolbar, this.state.pickerToolBarStyle, {width: this.state.style.width || width}]}>
-						<View style={styles.pickerCancelBtn}>
-							<Text style={[styles.pickerFinishBtnText, this.state.pickerBtnStyle]}
-								onPress={this._pickerCancel.bind(this)}>{this.state.pickerCancelBtnText}</Text>
-						</View>
+						{this.props.showCancelButton && (
+							<View style={styles.pickerCancelBtn}>
+								<Text style={[styles.pickerFinishBtnText, this.state.pickerBtnStyle]}
+									onPress={this._pickerCancel.bind(this)}>{this.state.pickerCancelBtnText}</Text>
+							</View>
+						)}
 						<Text style={[styles.pickerTitle, this.state.pickerTitleStyle]} numberOfLines={1}>
 							{this.state.pickerTitle}
 						</Text>
