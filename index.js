@@ -409,7 +409,7 @@ export default class PickerAny extends Component {
 
 		return (
 			<Animated.View style={[styles.picker, {
-				elevation: this.state.pickerElevation,
+				elevation: this.props.pickerElevation,
 				width: longSide,
 				height: this.state.showMask ? height : this.state.style.height,
 				bottom: this.state.slideAnim
